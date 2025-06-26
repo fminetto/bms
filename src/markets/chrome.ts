@@ -44,10 +44,12 @@ async function submit({
   }
 
   try {
-    await client.submit({
+    const response = await client.submit({
       filePath: zip,
       target
     })
+
+    vLog(`API Response: ${JSON.stringify(response, null, 2)}`)
 
     logSuccessfullyPublished({ extId, market, zip })
 
